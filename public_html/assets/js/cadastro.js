@@ -1,3 +1,13 @@
+importjs = function (l) {
+    d = document,
+        e = d.createElement('script');
+        //e.setAttribute("defer");
+        e.setAttribute("src", l);
+    d.head.appendChild(e);
+}
+
+importjs("https://cdn.jsdelivr.net/npm/sweetalert2@11")
+
 class CadastroJS {
 
     async addExpertise() {

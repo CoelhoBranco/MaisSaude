@@ -3,20 +3,23 @@
 use ModulePHP\Database\Insert as Insert;
 use ModulePHP\Database\Select as Select;
 
-class Cadastro {
-    
+class Cadastro
+{
+
     public $sucess;
     public $error;
+    public $status2;
 
-    function insert($array) {
+    function insert($array)
+    {
         $insert = new Insert;
         $values = "";
         $columns = "(name, cpf, adress, city, 
         cep, number, complement, district, state, 
         email, phone, phone2, id_area, presential, 
         c_virtual, consultation_price_presential, consultation_price_online)";
-           
-        
+
+
         foreach ($array as $value) {
             $values .= <<<VALUES
             (
@@ -48,17 +51,63 @@ class Cadastro {
         //echo $query;
 
         if ($result = $insert->execute(false, $query)) {
-            $this->status = "201: Cadastro efetuado com sucesso, efetue o login.";
+            $this->status = "Cadastro efetuado com sucesso!";
             $this->query = $query;
             return True;
         } else {
-            $this->status = $this->error; 
+            $this->status = $this->error;
             $this->query = $query;
             return false;
         }
     }
 
+    function moveImage($file,$name, $id,  $dir = 'public_html\assets\img\profile/')
+    {
+        //$destiny =  $destiny . $id . '.' . $ext;
+        //$result = move_uploaded_file($url, $destiny);
+        /*if (!move_uploaded_file(
+            $url,
+            sprintf(
+               
+                $url,
+                $ext
+            )
+        ))*/
+        $ext = strtolower(substr($name,-4)); //Pegando extensão do arquivo
+        $new_name = $id . $ext; //Definindo um novo nome para o arquivo
+         //Diretório para uploads 
+        $result = move_uploaded_file($file, $dir.$new_name); //Fazer upload do arquivo
+        //echo("Imagen enviada com sucesso!");
 
+            if ($result) {
+                $this->status2 = '';
+                $this->url = $dir.$new_name;
+                return $result;
+            } else {
+                $this->status2 = $this->error;
+                //$this->url = $destiny;
+                return false;
+            }
+    }
+
+    function selecId($name)
+    {
+
+        $select = new Select;
+
+        $query = <<<query
+            SELECT id FROM Partners
+            WHERE name='$name';
+            query;
+
+        if ($result = $select->result($query)) {
+            $this->status = "200 OK";
+            return $result;
+        } else {
+            $this->status = $this->error;
+            return false;
+        }
+    }
 }
 
 
@@ -86,4 +135,3 @@ $result = $parceiro->select($id);
 
 
 */
-

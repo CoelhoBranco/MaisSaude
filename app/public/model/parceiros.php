@@ -2,12 +2,14 @@
 
 use ModulePHP\Database\Select as Select;
 
-class Partners {
-    
+class Partners
+{
+
     public $sucess;
     public $error;
- 
-    function __construct() {
+
+    function __construct()
+    {
         $this->columns = "(
             name,
             cpf,
@@ -24,50 +26,57 @@ class Partners {
             id_area,
             consultation_price,
             id_modality)";
-        }
+    }
 
-    function select($parameters) {
+    function select($parameters)
+    {
         $select = new Select;
- 
+
         $query = <<<query
         SELECT $parameters FROM Partners
         query;
-      
+
         return $select->result($query);
     }
 
-    function selectAll() {
+    function selectAll()
+    {
         $select = new Select;
-        
+
         $query = <<<query
         SELECT id, name, adress, city, e.area, phone,  consultation_price_presential, consultation_price_online
         FROM Partners AS P
         INNER JOIN Expertise as E 
             on p.id_area = e.id_area
         query;
-        
+
         $this->sucess = true;
         $this->error = false;
-        
+
         return $select->result($query);
     }
 
-    function filtro_cidade(){
+    function filtro_cidade()
+    {
         $select = new Select;
 
         $query = <<<query
         SELECT city
         FROM Partners AS P;
         query;
-        
+
         $this->sucess = true;
         $this->error = false;
-        
-        return $select->result($query);
 
 
+        if ($result = $select->result($query)) {
+            $this->status = "201: Cadastro efetuado com sucesso, efetue o login.";
+            return $result;
+        } else {
+            $this->status = $this->error;
+            return false;
+        }
     }
-
 }
 
 /*
@@ -92,6 +101,3 @@ $parceiro = new Partners();
 $result = $parceiro->select($id);
 
 */
-
-
-
