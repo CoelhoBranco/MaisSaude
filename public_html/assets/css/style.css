@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  width: 100%;
+  height: 10vh;
+  background-color: #fff;
+}
+header img {
+  padding: 1vh;
+  display: flex;
+  width: auto;
+  height: auto;
+  height: 8vh;
+}
+
+#navbar {
+  width: 100%;
+  height: 10vh;
+  background-color: #fff;
+  position: fixed;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+}
+body h1 {
+  padding-top: 100px;
+  padding-bottom: 40px;
+  text-align: left;
+  font-style: normal;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 51px;
+  text-align: center;
+}
+
+.login {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding-top: 20%;
+  padding-left: 50%;
+  padding-right: 50%;
+}
+
+.fields {
+  margin-top: 6.5%;
+  padding-left: 5%;
+}
+.fields label {
+  font-size: 20px;
+  padding-bottom: 4px;
+  margin-top: 6.5%;
+}
+.fields label[name=file] {
+  padding: 0px 5px 0px 5px;
+  background: #D9D9D9;
+  border: 1px solid #000000;
+  border-radius: 2px;
+}
+.fields input,
+.fields select {
+  background-color: #D9D9D9;
+  display: flex;
+  border-radius: 8px;
+  width: 93%;
+  height: 33px;
+  border: 0 none;
+}
+
+.fields .img {
+  background-image: url("../img/sem_rosto.svg");
+  background-size: cover;
+  width: 178px;
+  height: 250px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.fields .img img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.fields .img label[name=file] {
+  cursor: pointer;
+}
+
+input[type=file] {
+  display: none;
+}
+
+#login {
+  padding-top: 20px;
+}
+#login .fields {
+  margin-top: 6.5%;
+  padding-left: 5%;
+}
+#login .fields label {
+  padding-top: 5%;
+  font-size: 20px;
+  padding-bottom: 4px;
+  margin-top: 6.5%;
+}
+#login label {
+  padding-top: 5%;
+  font-size: 20px;
+  padding-bottom: 4px;
+  margin-top: 10px;
+}
+#login input,
+#login select {
+  background-color: #D9D9D9;
+  display: flex;
+  border-radius: 8px;
+  width: 93%;
+  height: 33px;
+  opacity: 0.97;
+  border: 0 none;
+}
+#login a {
+  padding-left: 5%;
+  color: #398190;
+}
+
+a {
+  font-size: 14px;
+}
+
+.cadastro {
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+.cadastro a {
+  margin-top: 30%;
+  color: #000;
+  font-size: 16px;
+}
+
+.buttons {
+  padding-top: 3.5vw;
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 30px;
+}
+.buttons button {
+  display: block;
+  background-color: #6CC24A;
+  font-size: 21px;
+  border-radius: 8px;
+  height: 43px;
+  width: 78vw;
+  color: #fff;
+  font-style: normal;
+  border: 0 none;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.filtros {
+  display: flex;
+  width: 100vw;
+  justify-content: space-between;
+}
+.filtros select {
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  border-radius: 8px;
+}
+
+.apresentacao {
+  width: 100vw;
+  height: 35vw;
+  background-color: #6CC24A;
+  color: #fff;
+  display: flex;
+  font: size 19px;
+  align-items: center;
+}
+.apresentacao h1 {
+  text-align: left;
+  font-size: 19px;
+  margin-right: 100px;
+  margin-left: 10px;
+}
+.apresentacao img {
+  max-width: 100vw;
+  width: auto;
+  height: 100%;
+}
+
+.parceiros h1 {
+  padding-left: 10px;
+  text-align: left;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 33px;
+  color: #6BA539;
+}
+
+button {
+  background-color: #6CC24A;
+  font-size: 21px;
+  border-radius: 8px;
+  padding: 5px;
+  padding-top: 0;
+  padding-bottom: 1px;
+  color: #fff;
+  width: 70px;
+  font-style: normal;
+  border: 0 none;
+  cursor: pointer;
+}
+button :hover {
+  background-color: #6BA539;
+}
+
+#entrar {
+  padding-top: 7.5vw;
+  justify-content: center;
+  display: grid;
+  justify-content: center;
+  width: 100%;
+}
+#entrar .error {
+  padding-bottom: 7.5vw;
+  display: flex;
+  justify-content: center;
+  color: #C22727;
+}
+#entrar button {
+  display: block;
+  background-color: #6CC24A;
+  font-size: 21px;
+  border-radius: 8px;
+  height: 43px;
+  width: 78vw;
+  color: #fff;
+  font-style: normal;
+  border: 0 none;
+}
+
+#loginbutton:hover {
+  background-color: #6BA539;
+}
+
+input:focus {
+  background-color: #FFF;
+  border: 1px solid #000;
+}
+
+@media only screen and (orientation: landscape) and (min-width: 800px) {
+  header {
+    display: flex;
+    align-items: center;
+  }
+  header img {
+    width: auto;
+    height: 8vh;
+  }
+  form {
+    width: 71vw;
+    margin: 0 auto;
+    padding: auto;
+    justify-content: center;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  div label {
+    justify-content: space-between;
+  }
+  button .buttons {
+    width: 55vw;
+    margin: auto;
+    padding: auto;
+  }
+  button .buttons button {
+    width: 55vw;
+    color: #fff;
+  }
+  form .buttons {
+    align-items: center;
+  }
+  div.fields {
+    margin-top: 10px;
+    max-width: 100vw;
+    width: 100%;
+    display: block;
+    flex-direction: row;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    flex-wrap: nowrap;
+  }
+  div.fields input,
+div.fields select {
+    color: #515151;
+    max-width: 100vw;
+    min-width: 90%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 45px;
+  }
+  div.fields input[name=cpf],
+div.fields input[name=numero],
+div.fields input[name=complemento],
+div.fields input[name=cidade],
+div.fields input[name=celular],
+div.fields input[name=telefone] {
+    width: 90%;
+    margin: 0;
+  }
+  div.fields .container:not:last-child {
+    width: 90%;
+    margin: 0;
+  }
+  div.fields input[name=cep],
+div.fields label[for=cep],
+div.fields label[for=valor_atendimento_1],
+div.fields input[name=valor_atendimento_1],
+div.fields label[for=valor_atendimento_2],
+div.fields input[name=valor_atendimento_2] {
+    margin-left: 10%;
+    width: 90%;
+  }
+  .apresentacao {
+    justify-content: space-between;
+    padding-bottom: 0;
+  }
+  .apresentacao h1 {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 63px;
+    line-height: 77px;
+  }
+  .apresentacao p {
+    padding: 1vw;
+    font-size: 63px;
+  }
+  .apresentacao img {
+    margin: 30px;
+  }
+  .login {
+    margin-top: 3%;
+    padding: 0;
+  }
+  #login {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #login .fields {
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+  }
+  #login .fields label {
+    padding-left: 1vw;
+  }
+  #login a {
+    padding-left: 1vw;
+  }
+  #login input,
+#login select {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    width: 48vw;
+    height: 45px;
+  }
+  #login #entrar,
+#login .buttons {
+    display: grid;
+    padding-top: 6vw;
+  }
+  #login #entrar div,
+#login .buttons div {
+    padding-bottom: 3vw;
+  }
+  #login #entrar button,
+#login .buttons button {
+    width: 48vw;
+  }
+  .cadastro a {
+    margin-top: 6vw;
+    align-items: center;
+  }
+}/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,9 @@
+php:
+  build: .
+  image: phpdocker
+  container_name: php
+  ports:
+    - "93:93"
+  volumes:
+      - ".:/var/www/html/"
+

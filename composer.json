@@ -1,0 +1,43 @@
+{
+  "name": "duxtec/modulephp",
+  "type": "project",
+  "description": "A modular framework for PHP",
+  "keywords": [
+    "PHP",
+    "module",
+    "modular",
+    "framework"
+  ],
+  "license": "GPL-3.0-only",
+  "require": {
+    "php": ">=7.4",
+    "psr/log": "^1.0.1",
+    "monolog/monolog": "^2.6",
+    "vlucas/phpdotenv": "^5.4"
+    
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "scripts": {
+    "install": [
+      "@php scripts/install"
+    ],
+    "update": [
+      "@php scripts/update"
+    ],
+    "localhost": [
+      "@php scripts/localhost"
+    ],
+    "create-userlevel": [
+      "@php scripts/create-userlevel"
+    ],
+    "delete-userlevel": [
+      "@php scripts/delete-userlevel"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
