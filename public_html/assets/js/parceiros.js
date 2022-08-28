@@ -1,38 +1,47 @@
 class Parceiros {
 
-    async getFiltros() {
-        const response = await fetch('controller/read/cidades',{
-            method:"POST",body:true
-        })
+    async addFilters(filter) {
+        const response = await
+            fetch(`/controller/read/option?option=${filter}`, {
+                method: "get"
+            })
         const result = await response.json();
-        //console.log(result);
-        return result;
-            
+        if (filter == 'cidades') {
+            let cidades = document.querySelector("#cidade");
+
+            //console.log(result);
+            result.forEach(element => {
+                let option = document.createElement("option");
+                option.value = element.city;
+                option.innerText = element.city;
+                cidades.appendChild(option);
+            }
+            )
+        }
+        else if (filter == "especialidade") {
+            let especialidade = document.querySelector("#especialidade");
+            //console.log(resu)
+            result.forEach(element => {
+                let option = document.createElement("option");
+                option.value = element.id_area;
+                option.innerText = element.area;
+                especialidade.appendChild(option);
+
+            }
+            )
+
+        }
+
+        return true;
+
 
     }
 
-    filtrosCidade() {
-        let city = document.getElementById('cidade'),
-            citys = this.getFiltros();
-        
-        console.log(citys);
-        
-        Array.from(citys).forEach(element => {
-            console.log(element);
-            let option = document.createElement('option');
-            option.innerText = element.city;
-            city.appendChild(option);
-
-        })}
-       
-        ;
- 
 
 
+}
 
-    }
-
-
-
-var parceiros = new Parceiros();
-parceiros.filtrosCidade();
+var parceiros = new Parceiros;
+parceiros.addFilters('cidades');
+parceiros.addFilters('especialidade');
+//parceiros.filtrosCidade();

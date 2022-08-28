@@ -1,7 +1,7 @@
 <?php
 $M["Render"]->body->header->base->layout = 2;
 $M["Render"]->head->metatag->base->title = 'cadastro';
-///$M["Render"]->head->script->base->script = 'cadastro';
+$M["Render"]->head->script->base->script = 'cadastro';
 ?>
 
 
@@ -101,9 +101,7 @@ $M["Render"]->head->metatag->base->title = 'cadastro';
         </div>
         <div class="fields">
             <label for="especialidade">Especialidade</label>
-            <select name="especialidade">
-                
-                <option value="">teste</option>
+            <select name="id_area">
             </select>
            
         </div>
@@ -119,7 +117,7 @@ $M["Render"]->head->metatag->base->title = 'cadastro';
         </div>
         <div class="fields">
             <label for="valor_atendimento_1">Valor de Atendimento 1</label>
-            <input name="valor_atendimento_1" type="text" value="">
+            <input type='number' name="valor_atendimento_1" type="text" value="">
         </div>
     </div>
     <div class="container">
@@ -132,7 +130,7 @@ $M["Render"]->head->metatag->base->title = 'cadastro';
         </div>
         <div class="fields">
             <label for="valor_atendimento_2">Valor de Atendimento 2</label>
-            <input name="valor_atendimento_2" type="text" value="">
+            <input type='number' name="valor_atendimento_2" type="text" value="">
         </div>
     </div>
     <div class="container">
@@ -153,7 +151,7 @@ $M["Render"]->head->metatag->base->title = 'cadastro';
     </div>
     <script src="assets\js\cadastro.js"></script>
     <script>
-                cadastro.addExpertise();
+        cadastro.addExpertise()
     </script>
 
 </form>

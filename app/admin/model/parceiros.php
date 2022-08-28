@@ -1,17 +1,16 @@
 <?php
 
-use ModulePHP\Database\Insert as Insert;
-use ModulePHP\User as User;
+use ModulePHP\Database\Select as Select;
 
-class Partners {
-    
+class Partners
+{
+
     public $sucess;
     public $error;
 
-    function insert($array) {
-        $insert = new Insert;
-        $values = "";
-        $columns = "(
+    function __construct()
+    {
+        $this->columns = "(
             name,
             cpf,
             adress, 
@@ -27,38 +26,52 @@ class Partners {
             id_area,
             consultation_price,
             id_modality)";
-           
-        
-        foreach ($array as $value) {
-            $values .= <<<VALUES
-            (
-                "{$value['nome']}",
-                "{$value['cpf']}",
-                "{$value['endereco']}",
-                "{$value['cidade']}",
-                "{$value['cep']}",
-                "{$value['numero']}",
-                "{$value['complemento']}",
-                "{$value['bairro']}",
-                "{$value['estado']}",
-                "{$value['email']}",
-                "{$value['celular']}",
-                "{$value['telefone']}",
-                "{$value['id_area']}",
-                "{$value['preco_consulta']}",
-                "{$value['complemento']}",
-                "{$value['modality']}",    
-            )
-            VALUES;
-        }
-        $query = <<<query
-        INSERT INTO Partners$columns
-        VALUES $values
-        query;
-        if ($result = $insert->query($query)) {
-            $this->status = "201: Cadastro efetuado com sucesso, efetue o login.";
+    }
 
-            return True;
+    function select($parameters)
+    {
+        $select = new Select;
+
+        $query = <<<query
+        SELECT $parameters FROM Partners
+        query;
+
+        return $select->result($query);
+    }
+
+    function selectAll()
+    {
+        $select = new Select;
+
+        $query = <<<query
+        SELECT id, name, adress, city, e.area, phone,  consultation_price_presential, consultation_price_online
+        FROM Partners AS P
+        INNER JOIN Expertise as E 
+            on p.id_area = e.id_area
+        query;
+
+        $this->sucess = true;
+        $this->error = false;
+
+        return $select->result($query);
+    }
+
+    function filtro_cidade()
+    {
+        $select = new Select;
+
+        $query = <<<query
+        SELECT city
+        FROM Partners AS P;
+        query;
+
+        $this->sucess = true;
+        $this->error = false;
+
+
+        if ($result = $select->result($query)) {
+            $this->status = "201: Cadastro efetuado com sucesso, efetue o login.";
+            return $result;
         } else {
             $this->status = $this->error;
             return false;
@@ -66,9 +79,8 @@ class Partners {
     }
 }
 
-
-#Parceiros Controller
 /*
+#Parceiros Controller
 $parceiros = new Partners();
 $result = $parceiros->selectAll();
 
@@ -88,7 +100,4 @@ $id = $__GET["id"];
 $parceiro = new Partners();
 $result = $parceiro->select($id);
 
-
-
 */
-
